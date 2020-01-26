@@ -1,1 +1,1 @@
-# conky-settings
+# personal-settings
