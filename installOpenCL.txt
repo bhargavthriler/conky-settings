@@ -1,0 +1,3 @@
+To openCL in host (intel)
+
+https://software.intel.com/en-us/forums/intel-distribution-of-openvino-toolkit/topic/798986
