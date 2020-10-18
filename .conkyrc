@@ -76,13 +76,22 @@ Processes: $alignr ${execi 1000 ps aux | wc -l}
 
 ${font}${voffset -20}
 ${font sans-serif:bold:size=10}CPU ${hr 2}
-${font sans-serif:normal:size=8}${execi 1000 grep model /proc/cpuinfo | cut -d : -f2 | tail -1 | sed 's/\s//'}
-Temp: $alignc CPU1: ${hwmon 0 temp 1}°C $alignr CPU2: ${hwmon 1 temp 1}°C 
+${font sans-serif:normal:size=8}${execi 1000 grep model /proc/cpuinfo | cut -d : -f2 | tail -1 | sed 's/\s//' | tr --delete @ | tr -d "CPU"} @ ${freq}
+#Temp: $alignc CPU1: ${hwmon 0 temp 1}°C $alignr CPU2: ${hwmon 1 temp 1}°C
+Temp: $alignc CPU1: ${hwmon 1 temp 1}°C $alignc CPU2: ${hwmon 1 temp 2}°C  $alignc CPU3: ${hwmon 1 temp 3}°C CPU4: ${hwmon 1 temp 4}°C CPU5: ${hwmon 1 temp 5}°C $alignr CPU6: ${hwmon 1 temp 6}°C
 #${font sans-serif:normal:size=8}${cpugraph cpu1}
 CPU1: ${cpu cpu1}% ${cpubar cpu1}
 CPU2: ${cpu cpu2}% ${cpubar cpu2}
 CPU3: ${cpu cpu3}% ${cpubar cpu3}
 CPU4: ${cpu cpu4}% ${cpubar cpu4}
+CPU5: ${cpu cpu5}% ${cpubar cpu5}
+CPU6: ${cpu cpu6}% ${cpubar cpu6}
+CPU7: ${cpu cpu7}% ${cpubar cpu7}
+CPU8: ${cpu cpu8}% ${cpubar cpu8}
+CPU9: ${cpu cpu9}% ${cpubar cpu9}
+CPU10: ${cpu cpu10}% ${cpubar cpu10}
+CPU11: ${cpu cpu11}% ${cpubar cpu11}
+CPU12: ${cpu cpu12}% ${cpubar cpu12}
 #${execi 8 sensors | grep -A 1 'temp2' | cut -c13-16 | sed '/^$/d'}°C
 
 ${font}${voffset -20}
