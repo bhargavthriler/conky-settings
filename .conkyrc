@@ -77,8 +77,8 @@ Processes: $alignr ${execi 1000 ps aux | wc -l}
 ${font}${voffset -20}
 ${font sans-serif:bold:size=10}CPU ${hr 2}
 ${font sans-serif:normal:size=8}${execi 1000 grep model /proc/cpuinfo | cut -d : -f2 | tail -1 | sed 's/\s//' | tr --delete @ | tr -d "CPU"} @ ${freq}
-#Temp: $alignc CPU1: ${hwmon 0 temp 1}°C $alignr CPU2: ${hwmon 1 temp 1}°C
-Temp: $alignc CPU1: ${hwmon 1 temp 1}°C $alignc CPU2: ${hwmon 1 temp 2}°C  $alignc CPU3: ${hwmon 1 temp 3}°C CPU4: ${hwmon 1 temp 4}°C CPU5: ${hwmon 1 temp 5}°C $alignr CPU6: ${hwmon 1 temp 6}°C
+#Temp: $alignc CPU1: ${hwmon 0 temp 1}°C $alignr CPU2: ${hwmon 1 temp 1}°C 
+Temp: $alignc CPU1: ${hwmon 1 temp 1}°C $alignc CPU2: ${hwmon 1 temp 2}°C  $alignc CPU3: ${hwmon 1 temp 3}°C CPU4: ${hwmon 1 temp 4}°C CPU5: ${hwmon 1 temp 5}°C $alignr CPU6: ${hwmon 1 temp 6}°C 
 #${font sans-serif:normal:size=8}${cpugraph cpu1}
 CPU1: ${cpu cpu1}% ${cpubar cpu1}
 CPU2: ${cpu cpu2}% ${cpubar cpu2}
@@ -105,18 +105,18 @@ ${font sans-serif:bold:size=10}DISK USAGE  $alignr ${fs_used_perc /}% Used
 ${font sans-serif:normal:size=8} Used: ${fs_used /}           Total: ${fs_size /} $alignr Free: $alignr ${fs_free /}
 ${fs_bar /}
 
-${font sans-serif:bold:size=10}GPU ${font sans-serif:normal:size=8}${nvidia modelname} ${font sans-serif:bold:size=10} $alignr ${nvidia gpuutil}%
-${font sans-serif:normal:size=8}Graphics Clock:$alignr ${nvidia gpufreqcur} Mhz / ${nvidia gpufreqmax} Mhz
-Memory Clock: $alignr ${nvidia mtrfreqcur} Mhz / ${nvidia mtrfreqmax} Mhz
-Performance Level: $alignr  ${nvidia perflevelcur}
-Temperature: $alignr ${nvidia temp}°C
-RAM:                              ${nvidia memused}MiB / ${nvidia memmax}MiB $alignr ${nvidia membwutil}%
+#${font sans-serif:bold:size=10}GPU ${font sans-serif:normal:size=8}${nvidia modelname} ${font sans-serif:bold:size=10} $alignr ${nvidia gpuutil}%
+#${font sans-serif:normal:size=8}Graphics Clock:$alignr ${nvidia gpufreqcur} Mhz / ${nvidia gpufreqmax} Mhz
+#Memory Clock: $alignr ${nvidia mtrfreqcur} Mhz / ${nvidia mtrfreqmax} Mhz
+#Performance Level: $alignr  ${nvidia perflevelcur}
+#Temperature: $alignr ${nvidia temp}°C
+#RAM:                              ${nvidia memused}MiB / ${nvidia memmax}MiB $alignr ${nvidia membwutil}%
 
 ${font sans-serif:bold:size=10}NETWORK ${hr 2}
-${font sans-serif:normal:size=8}IP:${alignr}${execi 1000 ip a | grep inet | grep -vw lo | grep -v inet6 | cut -d \/ -f1 | sed 's/[^0-9\.]*//g'}
+${font sans-serif:normal:size=8}IP:${alignr}${execi 1000 ip a | grep inet | grep -vw lo | grep -v inet6 | cut -d \/ -f1 | sed 's/[^0-9\.]*//g' | head -n 1}
 #${execi 1000 ip a | grep inet | grep -vw lo | grep -v inet6 | cut -d \/ -f1 | sed 's/[^0-9\.]*//g'}  ${alignr}${execi 1000  wget -q -O- http://ipecho.net/plain; echo}
-${font sans-serif:normal:size=8}Down: ${downspeed wlp3s0}  ${alignr}Up: ${upspeed wlp3s0}
-#${color lightgray}${downspeedgraph wlp3s0 80,130 } ${alignr}${upspeedgraph wlp3s0 80,130 }$color
+${font sans-serif:normal:size=8}Down: ${downspeed wlp0s20f3}  ${alignr}Up: ${upspeed wlp0s20f3}
+#${color lightgray}${downspeedgraph wlp0s20f3 80,130 } ${alignr}${upspeedgraph wlp0s20f3 80,130 }$color
 
 ${font sans-serif:bold:size=10}TOP PROCESSES ${hr 2}
 ${font sans-serif:normal:size=8}Name $alignr PID   CPU%   MEM%${font sans-serif:normal:size=8}
