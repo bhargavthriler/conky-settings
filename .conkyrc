@@ -101,9 +101,15 @@ $membar
 SWAP                           ${swap} / ${swapmax} $alignr ${swapperc}%
 ${swapbar}
 
-${font sans-serif:bold:size=10}DISK USAGE  $alignr ${fs_used_perc /}% Used
+#DISK USAGE
+#${font sans-serif:bold:size=10}DISK USAGE  $alignr ${fs_used_perc /}% Used
+${font sans-serif:bold:size=10}DISK USAGE ${hr 2}
+${font sans-serif:bold:size=9}SSD1 $alignr ${fs_used_perc /}% Used
 ${font sans-serif:normal:size=8} Used: ${fs_used /}           Total: ${fs_size /} $alignr Free: $alignr ${fs_free /}
 ${fs_bar /}
+${font sans-serif:bold:size=9}SSD2 $alignr ${fs_used_perc /home/bhargav/SSD2-linux}% Used
+${font sans-serif:normal:size=8} Used: ${fs_used /home/bhargav/SSD2-linux}           Total: ${fs_size /home/bhargav/SSD2-linux} $alignr Free: $alignr ${fs_free /home/bhargav/SSD2-linux}
+${fs_bar /home/bhargav/SSD2-linux}
 
 #${font sans-serif:bold:size=10}GPU ${font sans-serif:normal:size=8}${nvidia modelname} ${font sans-serif:bold:size=10} $alignr ${nvidia gpuutil}%
 #${font sans-serif:normal:size=8}Graphics Clock:$alignr ${nvidia gpufreqcur} Mhz / ${nvidia gpufreqmax} Mhz
